@@ -1,0 +1,38 @@
+
+   *Procedure for disable notify all watchers on confluence*
+
+
+
+*For Confluence 5.7 and below*
+
+Admin - Cog icon -> General Configuration -> Custom HTML -> 
+
+Insert the below code on At end of the HEAD   space.
+
+<script type="text/javascript">
+AJS.bind('init.rte', function() {
+  AJS.$('#notifyWatchers').attr('checked', false);
+});
+</script>
+
+
+*For Confluence 5.8 above*
+
+Admin - Cog icon -> General Configuration -> Custom HTML -> 
+
+Insert the below code on At end of the HEAD   space.
+
+
+
+
+<script>
+function disableWatchers() {
+  setTimeout(disableWatchers, 1000);
+  if ( $('#notifyWatchers').attr( "mz" ) != 1) {
+    setTimeout(function() {$('#notifyWatchers').removeAttr('checked');}, 1000);
+    $('#notifyWatchers').attr( "mz", 1);
+  }
+}
+disableWatchers();
+</script>
+
