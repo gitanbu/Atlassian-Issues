@@ -1,9 +1,10 @@
 
    *Procedure for disable notify all watchers on confluence*
-
+    --------------------------------------------------------
 
 
 *For Confluence 5.7 and below*
+-------------------------------
 
 Admin - Cog icon -> General Configuration -> Custom HTML -> 
 
@@ -17,7 +18,7 @@ AJS.bind('init.rte', function() {
 
 
 *For Confluence 5.8 above*
-
+-------------------------
 Admin - Cog icon -> General Configuration -> Custom HTML -> 
 
 Insert the below code on At end of the HEAD   space.
