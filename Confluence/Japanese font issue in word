@@ -1,0 +1,30 @@
+In this case, lets modify the configuration as per the following
+
+	Stop Confluence
+  
+Edit the setenv.sh file and remove the line below:
+
+CATALINA_OPTS="-Dconfluence.document.conversion.words.defaultfontname=IPAGothic ${CATALINA_OPTS}"
+
+Add everything in the following line into the setenv.sh file:
+CATALINA_OPTS="-Dconversion.sandbox.java.options=-Dconfluence.document.conversion.slides.defaultfontname.regular=IPAGothic,-Dconfluence.document.conversion.slides.defaultfontname.asian=IPAGothic,-Dconfluence.document.conversion.slides.defaultfontname.symbol=IPAGothic,-Dconfluence.document.conversion.words.defaultfontname=IPAGothic ${CATALINA_OPTS}"
+Comment out or remove the line below to enable the document conversion sandbox:
+CATALINA_OPTS="-Ddocument.conversion.sandbox.disable=true ${CATALINA_OPTS}"
+
+Save the configuration.
+
+Clear the files from the directories below as we did during the call:
+
+<confluence_home>/viewfile/
+<confluence_home>/thumbnails/
+<confluence_home>/shared-home/dcl-document/
+<confluence_home>/shared-home/dcl-document_hd/
+<confluence_home>/shared-home/dcl-thumbnail/
+
+Start Confluence
+
+Clear the browser cache.
+
+Access the page containing the .docx file and verify if the Japanese Character render correctly.
+You may delete and reattach the file into the page.
+In case the issue still persist, kindly generate and attach new set of Support Zip file in this ticket.
